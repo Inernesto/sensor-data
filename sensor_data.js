@@ -141,7 +141,7 @@ document.getElementById('stopButton').addEventListener('click', () => {
 
 // Function to download data as JSON file
 function downloadData() {
-    let jsonData = JSON.stringify(data);
+    let jsonData = JSON.stringify(sensorData);
     let blob = new Blob([jsonData], { type: 'application/json' });
     let url = URL.createObjectURL(blob);
 
