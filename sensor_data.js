@@ -47,7 +47,7 @@ document.getElementById('startButton').addEventListener('click', () => {
 			
             // Update HTML content with motion acceleration data
             document.getElementById('gravity-data').innerHTML = `
-                Motion Acceleration Data:<br>
+                Gravity Data:<br>
                 X: ${gravityX.toFixed(2)}<br>
                 Y: ${gravityY.toFixed(2)}<br>
                 Z: ${gravityZ.toFixed(2)}<br>
