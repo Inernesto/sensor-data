@@ -1,5 +1,6 @@
 let data = [];
 let recording = false;
+let sensorData = {}; // Declare sensorData object
 
 function startRecording() {
     data = [];
@@ -53,7 +54,7 @@ document.getElementById('startButton').addEventListener('click', () => {
 
         accelerometer.addEventListener('reading', () => {
             // Read accelerometer data
-            let sensorData = {
+            sensorData = {
                 index: data.length,
                 'acceleration.x': accelerometer.x,
                 'acceleration.y': accelerometer.y,
@@ -75,16 +76,16 @@ document.getElementById('startButton').addEventListener('click', () => {
         });
 
         accelerometer.start();
-		
-		
-		// Access gyroscope data
+        
+        
+        // Access gyroscope data
         let gyroscope = new Gyroscope({ frequency: 50 });
 
         gyroscope.addEventListener('reading', () => {
-            // Read gyroscope data			
-			sensorData[sensorData.length - 1]["rotationRate.x"] = gyroscope.x;
-            sensorData[sensorData.length - 1]["rotationRate.y"] = gyroscope.y;
-            sensorData[sensorData.length - 1]["rotationRate.z"] = gyroscope.z;
+            // Read gyroscope data         
+            sensorData["rotationRate.x"] = gyroscope.x;
+            sensorData["rotationRate.y"] = gyroscope.y;
+            sensorData["rotationRate.z"] = gyroscope.z;
 
             // Update HTML content with gyroscope data
             document.getElementById('gyroscope-data').innerHTML = `
@@ -96,17 +97,16 @@ document.getElementById('startButton').addEventListener('click', () => {
         });
 
         gyroscope.start();
-		
-		
-		// Access absolute orientation sensor data
+        
+        
+        // Access absolute orientation sensor data
         let orientationSensor = new AbsoluteOrientationSensor({ frequency: 50 });
 
         orientationSensor.addEventListener('reading', () => {
             // Read orientation sensor data
-			sensorData[sensorData.length - 1]["attitude.roll"] = orientationSensor.quaternion[0];
-            sensorData[sensorData.length - 1]["attitude.pitch"] = orientationSensor.quaternion[1];
-            sensorData[sensorData.length - 1]["attitude.yaw"] = orientationSensor.quaternion[2];
-			
+            sensorData["attitude.roll"] = orientationSensor.quaternion[0];
+            sensorData["attitude.pitch"] = orientationSensor.quaternion[1];
+            sensorData["attitude.yaw"] = orientationSensor.quaternion[2];
 
             // Update HTML content with orientation sensor data
             document.getElementById('orientation-data').innerHTML = `
@@ -118,8 +118,8 @@ document.getElementById('startButton').addEventListener('click', () => {
         });
 
         orientationSensor.start();
-		
-		
+        
+        
     } else {
         console.error('Sensors not supported in this browser');
     }
