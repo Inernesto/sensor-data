@@ -81,18 +81,11 @@ document.getElementById('startButton').addEventListener('click', () => {
         let gyroscope = new Gyroscope({ frequency: 50 });
 
         gyroscope.addEventListener('reading', () => {
-            // Read gyroscope data
-            let sensorData = {
-                index: data.length,
-                'rotationRate.x': gyroscope.x,
-                'rotationRate.y': gyroscope.y,
-                'rotationRate.z': gyroscope.z
-            };
-
-            // Add to the sensor data
-            if (recording) {
-                data.push(sensorData);
-            }
+            // Read gyroscope data			
+			sensorData[sensorData.length - 1]["rotationRate.x"] = gyroscope.x;
+            sensorData[sensorData.length - 1]["rotationRate.y"] = gyroscope.y;
+            sensorData[sensorData.length - 1]["rotationRate.z"] = gyroscope.z;
+			
 
             // Update HTML content with gyroscope data
             document.getElementById('gyroscope-data').innerHTML = `
@@ -111,17 +104,10 @@ document.getElementById('startButton').addEventListener('click', () => {
 
         orientationSensor.addEventListener('reading', () => {
             // Read orientation sensor data
-            let sensorData = {
-                index: data.length,
-                'attitude.roll': orientationSensor.quaternion[0],
-                'attitude.pitch': orientationSensor.quaternion[1],
-                'attitude.yaw': orientationSensor.quaternion[2]
-            };
-
-            // Add to the sensor data
-            if (recording) {
-                data.push(sensorData);
-            }
+			sensorData[sensorData.length - 1]["attitude.roll"] = orientationSensor.quaternion[0];
+            sensorData[sensorData.length - 1]["attitude.pitch"] = orientationSensor.quaternion[1];
+            sensorData[sensorData.length - 1]["attitude.yaw"] = orientationSensor.quaternion[2];
+			
 
             // Update HTML content with orientation sensor data
             document.getElementById('orientation-data').innerHTML = `
