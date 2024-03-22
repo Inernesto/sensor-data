@@ -68,9 +68,9 @@ document.getElementById('startButton').addEventListener('click', () => {
             // Update HTML content with accelerometer data
             document.getElementById('accelerometer-data').innerHTML = `
                 Accelerometer Data:<br>
-                X: $accelerometer.x.toFixed(2)}<br>
-                Y: $accelerometer.y.toFixed(2)}<br>
-                Z: $accelerometer.z.toFixed(2)}<br>
+                X: ${accelerometer.x.toFixed(2)}<br>
+                Y: ${accelerometer.y.toFixed(2)}<br>
+                Z: ${accelerometer.z.toFixed(2)}<br>
             `;
         });
 
@@ -89,9 +89,9 @@ document.getElementById('startButton').addEventListener('click', () => {
             // Update HTML content with gyroscope data
             document.getElementById('gyroscope-data').innerHTML = `
                 Gyroscope Data:<br>
-                X: $gyroscope.x.toFixed(2)}<br>
-                Y: $gyroscope.y.toFixed(2)}<br>
-                Z: $gyroscope.z.toFixed(2)}<br>
+                X: ${gyroscope.x.toFixed(2)}<br>
+                Y: ${gyroscope.y.toFixed(2)}<br>
+                Z: ${gyroscope.z.toFixed(2)}<br>
             `;
         });
 
@@ -111,9 +111,9 @@ document.getElementById('startButton').addEventListener('click', () => {
             // Update HTML content with orientation sensor data
             document.getElementById('orientation-data').innerHTML = `
                 Orientation Data:<br>
-                Roll: $orientationSensor.quaternion[0].toFixed(2)}<br>
-                Pitch: $orientationSensor.quaternion[1].toFixed(2)}<br>
-                Yaw: $orientationSensor.quaternion[2].toFixed(2)}<br>
+                Roll: ${orientationSensor.quaternion[0].toFixed(2)}<br>
+                Pitch: ${orientationSensor.quaternion[1].toFixed(2)}<br>
+                Yaw: ${orientationSensor.quaternion[2].toFixed(2)}<br>
             `;
         });
 
