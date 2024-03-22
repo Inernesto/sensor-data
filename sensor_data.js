@@ -10,13 +10,20 @@ function startRecording() {
 function stopRecording() {
     recording = false;
     downloadData();
-    document.getElementById('sensor-data').innerHTML = '';
-    document.getElementById('recording-time').innerHTML = '';
+	
+	// Clear sensor data display
+    document.getElementById('accelerometer-data').innerHTML = '';
+    document.getElementById('gyroscope-data').innerHTML = '';
+    document.getElementById('orientation-data').innerHTML = '';
+    document.getElementById('gravity-data').innerHTML = '';
+	
+	// Clear recording time display
+	document.getElementById('recording-time').innerHTML = '';
 }
 
 function displayCurrentTime() {
     let currentTime = new Date();
-    document.getElementById('recording-time').textContent = 'Recording Time: ' + currentTime.toLocaleString();
+    document.getElementById('recording-time').innerHTML = 'Recording Time: ' + currentTime.toLocaleString();
     if (recording) {
         setTimeout(displayCurrentTime, 1000); // Update every second
     }
@@ -161,18 +168,4 @@ document.getElementById('startButton').addEventListener('click', () => {
 // Stop button
 document.getElementById('stopButton').addEventListener('click', () => {
 	stopRecording()
-	
-    // Clear sensor data display
-    // document.getElementById('accelerometer-data').innerHTML = '';
-    // document.getElementById('gyroscope-data').innerHTML = '';
-    // document.getElementById('orientation-data').innerHTML = '';
-    // document.getElementById('gravity-data').innerHTML = '';
-
-    // Clear recording time display
-    // recordingTimeElement.textContent = '';
-
-    // Stop sensor readings
-    // Download data as JSON file
-	
-    // downloadData();
 });
