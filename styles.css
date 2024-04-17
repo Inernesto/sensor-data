@@ -57,7 +57,7 @@ button:hover {
 }
 
 .instructions ol {
-    margin: 0;
+    margin: 0 auto; /* Center the list */
     padding: 0;
     text-align: left; /* Align list items to the left */
 }
