@@ -39,3 +39,28 @@ button:hover {
     min-width: 200px;
     text-align: center;
 }
+
+/* Instructions formatting */
+.instructions {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.instructions h2 {
+    font-size: 18px;
+    margin-top: 0;
+    color: #333;
+}
+
+.instructions ol {
+    margin: 0;
+    padding: 0;
+}
+
+.instructions ol li {
+    margin-bottom: 10px;
+    list-style-type: decimal;
+}
