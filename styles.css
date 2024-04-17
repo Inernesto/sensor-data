@@ -47,6 +47,7 @@ button:hover {
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
+    text-align: center; /* Center text */
 }
 
 .instructions h2 {
@@ -58,6 +59,7 @@ button:hover {
 .instructions ol {
     margin: 0;
     padding: 0;
+    text-align: left; /* Align list items to the left */
 }
 
 .instructions ol li {
